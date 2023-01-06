@@ -1,11 +1,9 @@
 package com.uniyaz.actor.dao;
-
 import com.uniyaz.HibernateUtil;
 import com.uniyaz.actor.domain.Actor;
 import com.uniyaz.actor.queryfilterdto.ActorQueryFilterDto;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
-
 import java.util.List;
 
 public class ActorDao {
