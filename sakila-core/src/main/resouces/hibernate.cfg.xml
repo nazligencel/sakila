@@ -20,5 +20,7 @@
         <mapping class="com.uniyaz.film.domain.Film"></mapping>
         <mapping class="com.uniyaz.filmactor.domain.FilmActor"></mapping>
         <mapping class="com.uniyaz.address.domain.Address"></mapping>
+        <mapping class="com.uniyaz.category.domain.Category"></mapping>
+        <mapping class="com.uniyaz.filmcategory.domain.FilmCategory"></mapping>
     </session-factory>
 </hibernate-configuration>
