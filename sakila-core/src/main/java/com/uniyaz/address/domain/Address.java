@@ -1,12 +1,11 @@
 package com.uniyaz.address.domain;
 
+import com.uniyaz.city.domain.City;
 import com.uniyaz.common.domain.BaseEntity;
-import com.uniyaz.tum.City;
 import org.hibernate.annotations.ForeignKey;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 @Table(name = "address")
 @Entity

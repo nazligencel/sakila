@@ -22,5 +22,7 @@
         <mapping class="com.uniyaz.address.domain.Address"></mapping>
         <mapping class="com.uniyaz.category.domain.Category"></mapping>
         <mapping class="com.uniyaz.filmcategory.domain.FilmCategory"></mapping>
+        <mapping class="com.uniyaz.customer.domain.Customer"></mapping>
+        <mapping class="com.uniyaz.store.domain.Store"></mapping>
     </session-factory>
 </hibernate-configuration>

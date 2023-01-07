@@ -1,5 +1,7 @@
 package com.uniyaz.tum;
 
+import com.uniyaz.customer.domain.Customer;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;

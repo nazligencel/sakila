@@ -3,14 +3,11 @@ package com.uniyaz.filmcategory.domain;
 import com.uniyaz.category.domain.Category;
 import com.uniyaz.common.domain.BaseEntity;
 import com.uniyaz.film.domain.Film;
-import com.uniyaz.tum.FilmCategoryPK;
 import org.hibernate.annotations.ForeignKey;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "film_category")

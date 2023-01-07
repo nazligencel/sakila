@@ -1,5 +1,7 @@
 package com.uniyaz.tum;
 
+import com.uniyaz.customer.domain.Customer;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
