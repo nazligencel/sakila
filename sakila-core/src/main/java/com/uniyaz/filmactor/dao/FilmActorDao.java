@@ -35,4 +35,5 @@ public class FilmActorDao {
         currentSession.delete(filmActor);
         transaction.commit();
     }
+
 }
