@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.FilmActor">
+        <table name="film_actor" schema="sakila" catalog=""/>
+        <id-class class="com.uniyaz.tum.FilmActorPK"/>
+        <attributes>
+            <id name="actorId">
+                <column name="actor_id"/>
+            </id>
+            <id name="filmId">
+                <column name="film_id"/>
+            </id>
+            <basic name="lastUpdate">
+                <column name="last_update"/>
+            </basic>
+            <basic name="filmActorId">
+                <column name="film_actor_id"/>
+            </basic>
+            <many-to-one name="filmByFilmId" optional="true" target-entity="com.uniyaz.tum.Film">
+                <join-column name="film_id" referenced-column-name="film_id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

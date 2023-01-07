@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.Customer">
+        <table name="customer" schema="sakila" catalog=""/>
+        <attributes>
+            <id name="customerId">
+                <column name="customer_id"/>
+            </id>
+            <basic name="firstName">
+                <column name="first_name"/>
+            </basic>
+            <basic name="lastName">
+                <column name="last_name"/>
+            </basic>
+            <basic name="email">
+                <column name="email"/>
+            </basic>
+            <basic name="active">
+                <column name="active"/>
+            </basic>
+            <basic name="createDate">
+                <column name="create_date"/>
+            </basic>
+            <basic name="lastUpdate">
+                <column name="last_update"/>
+            </basic>
+            <many-to-one name="addressByAddressId" optional="true" target-entity="com.uniyaz.address.domain.Address">
+                <join-column name="address_id" referenced-column-name="address_id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

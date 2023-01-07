@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.ActorInfo">
+        <table name="actor_info" schema="sakila" catalog=""/>
+        <attributes>
+            <basic name="actorId">
+                <column name="actor_id"/>
+            </basic>
+            <basic name="firstName">
+                <column name="first_name"/>
+            </basic>
+            <basic name="lastName">
+                <column name="last_name"/>
+            </basic>
+            <basic name="filmInfo">
+                <column name="film_info"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

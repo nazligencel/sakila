@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.SalesByStore">
+        <table name="sales_by_store" schema="sakila" catalog=""/>
+        <attributes>
+            <basic name="store">
+                <column name="store"/>
+            </basic>
+            <basic name="manager">
+                <column name="manager"/>
+            </basic>
+            <basic name="totalSales">
+                <column name="total_sales"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

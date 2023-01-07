@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.Staff">
+        <table name="staff" schema="sakila" catalog=""/>
+        <attributes>
+            <id name="staffId">
+                <column name="staff_id"/>
+            </id>
+            <basic name="firstName">
+                <column name="first_name"/>
+            </basic>
+            <basic name="lastName">
+                <column name="last_name"/>
+            </basic>
+            <basic name="picture">
+                <column name="picture"/>
+            </basic>
+            <basic name="email">
+                <column name="email"/>
+            </basic>
+            <basic name="active">
+                <column name="active"/>
+            </basic>
+            <basic name="username">
+                <column name="username"/>
+            </basic>
+            <basic name="password">
+                <column name="password"/>
+            </basic>
+            <basic name="lastUpdate">
+                <column name="last_update"/>
+            </basic>
+            <many-to-one name="addressByAddressId" optional="true" target-entity="com.uniyaz.address.domain.Address">
+                <join-column name="address_id" referenced-column-name="address_id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.CustomerList">
+        <table name="customer_list" schema="sakila" catalog=""/>
+        <attributes>
+            <basic name="id">
+                <column name="ID"/>
+            </basic>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="address">
+                <column name="address"/>
+            </basic>
+            <basic name="zipCode">
+                <column name="zip code"/>
+            </basic>
+            <basic name="phone">
+                <column name="phone"/>
+            </basic>
+            <basic name="city">
+                <column name="city"/>
+            </basic>
+            <basic name="country">
+                <column name="country"/>
+            </basic>
+            <basic name="notes">
+                <column name="notes"/>
+            </basic>
+            <basic name="sid">
+                <column name="SID"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

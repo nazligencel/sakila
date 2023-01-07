@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.Rental">
+        <table name="rental" schema="sakila" catalog=""/>
+        <attributes>
+            <id name="rentalId">
+                <column name="rental_id"/>
+            </id>
+            <basic name="rentalDate">
+                <column name="rental_date"/>
+            </basic>
+            <basic name="returnDate">
+                <column name="return_date"/>
+            </basic>
+            <basic name="lastUpdate">
+                <column name="last_update"/>
+            </basic>
+            <many-to-one name="inventoryByInventoryId" optional="true" target-entity="com.uniyaz.tum.Inventory">
+                <join-column name="inventory_id" referenced-column-name="inventory_id"/>
+            </many-to-one>
+            <many-to-one name="customerByCustomerId" optional="true" target-entity="com.uniyaz.tum.Customer">
+                <join-column name="customer_id" referenced-column-name="customer_id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

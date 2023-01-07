@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.uniyaz.tum.CityAud">
+        <table name="city_aud" schema="sakila" catalog=""/>
+        <id-class class="com.uniyaz.tum.CityAudPK"/>
+        <attributes>
+            <id name="cityId">
+                <column name="city_id"/>
+            </id>
+            <id name="rev">
+                <column name="REV"/>
+            </id>
+            <basic name="revtype">
+                <column name="REVTYPE"/>
+            </basic>
+            <basic name="city">
+                <column name="city"/>
+            </basic>
+            <basic name="lastUpdate">
+                <column name="last_update"/>
+            </basic>
+            <basic name="countryId">
+                <column name="country_id"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

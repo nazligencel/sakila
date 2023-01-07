@@ -83,6 +83,7 @@ public class CityPage extends VerticalLayout{
 
         buildSearchButton();
         filterFormLayout.addComponent(searchButton);
+
     }
 
     private void buildSearchButton() {
@@ -176,9 +177,8 @@ public class CityPage extends VerticalLayout{
 
                 City city = new City();
 
-                if (!id.getValue().equals("")) {
-                    city.setId(new Long(id.getValue()));
-                }
+                if (!id.getValue().equals("")) city.setId(new Long(id.getValue()));
+
                 city.setCity(cityField.getValue());
                 city.setLastUpdate(new Date());
                 city.setCountry((Country) countryField.getValue());
