@@ -24,5 +24,10 @@
         <mapping class="com.uniyaz.filmcategory.domain.FilmCategory"></mapping>
         <mapping class="com.uniyaz.customer.domain.Customer"></mapping>
         <mapping class="com.uniyaz.store.domain.Store"></mapping>
+        <mapping class="com.uniyaz.inventory.domain.Inventory"></mapping>
+        <mapping class="com.uniyaz.payment.domain.Payment"></mapping>
+        <mapping class="com.uniyaz.rental.domain.Rental"></mapping>
+        <mapping class="com.uniyaz.staff.domain.Staff"></mapping>
+
     </session-factory>
 </hibernate-configuration>

@@ -2,12 +2,9 @@ package com.uniyaz.store.domain;
 
 import com.uniyaz.address.domain.Address;
 import com.uniyaz.common.domain.BaseEntity;
-import com.uniyaz.tum.Staff;
-
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
-import java.util.Objects;
+
 
 @Entity
 public class Store extends BaseEntity {
