@@ -44,9 +44,9 @@ public class CityDao {
 
         String hql =
                 "Select city " +
-                "From City city " +
-                "Left Join fetch city.country country " +
-                "where 1=1 ";
+                        "From City city " +
+                        "Left Join fetch city.country country " +
+                        "where 1=1 ";
 
         if (cityQueryFilterDto.getId() != null) {
             hql += " and city.id = :cityId";

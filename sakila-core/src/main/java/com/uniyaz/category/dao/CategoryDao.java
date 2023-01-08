@@ -1,6 +1,7 @@
 package com.uniyaz.category.dao;
 
 import com.uniyaz.HibernateUtil;
+import com.uniyaz.actor.domain.Actor;
 import com.uniyaz.category.domain.Category;
 import com.uniyaz.category.queryfilterdto.CategoryQueryFilterDto;
 import org.hibernate.*;
@@ -37,6 +38,15 @@ public class CategoryDao {
         Transaction transaction = currentSession.beginTransaction();
         currentSession.delete(category);
         transaction.commit();
+    }
+
+    public List<Category> findAllByName(String name) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session currentSession = sessionFactory.openSession();
+        Query query = currentSession.createQuery("Select category From Category category where category.categoryName = :name ");
+        query.setParameter("name", name);
+        List<Category> categoryList = query.list();
+        return categoryList;
     }
 
     public List<Category> findAllByQueryFilterDto(CategoryQueryFilterDto categoryQueryFilterDto) {

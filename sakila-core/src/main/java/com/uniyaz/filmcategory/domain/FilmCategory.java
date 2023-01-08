@@ -13,6 +13,7 @@ import java.util.Date;
 @Table(name = "film_category")
 @Audited
 public class FilmCategory extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
