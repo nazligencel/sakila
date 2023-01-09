@@ -1,6 +1,7 @@
-package com.uniyaz.filmactor.service;
+package com.uniyaz.filmactor.service.filmactor;
 
 import com.uniyaz.filmactor.domain.FilmActor;
+import com.uniyaz.filmactor.service.FilmActorService;
 import org.junit.Test;
 
 import java.util.List;

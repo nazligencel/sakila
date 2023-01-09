@@ -114,5 +114,6 @@ public class CategoryDao {
 
         List<Category> categoryList = criteria.list();
         return categoryList;
+
     }
 }

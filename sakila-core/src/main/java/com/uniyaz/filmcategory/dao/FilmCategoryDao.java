@@ -35,7 +35,7 @@ public class FilmCategoryDao {
         currentSession.delete(filmCategory);
         transaction.commit();
     }
-    public List<FilmCategory> findByFileName(String s) {
+    public List<FilmCategory> findByFileName(String name) {
         String hql =
                 "Select filmcategory " +
                         "From FilmCategory filmcategory " +
@@ -46,7 +46,7 @@ public class FilmCategoryDao {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session currentSession = sessionFactory.openSession();
         Query query = currentSession.createQuery(hql);
-        query.setParameter("name",s + "%");
+        query.setParameter("name",name + "%");
         List<FilmCategory> filmCategoryList = query.list();
         return filmCategoryList;
 
