@@ -5,13 +5,11 @@ import com.uniyaz.common.domain.BaseEntity;
 import com.uniyaz.film.domain.Film;
 import org.hibernate.annotations.ForeignKey;
 import org.hibernate.envers.Audited;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "film_category")
-@Audited
 public class FilmCategory extends BaseEntity {
 
     @Id

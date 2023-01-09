@@ -2,6 +2,9 @@ package com.uniyaz.store.domain;
 
 import com.uniyaz.address.domain.Address;
 import com.uniyaz.common.domain.BaseEntity;
+import com.uniyaz.staff.domain.Staff;
+import org.hibernate.annotations.ForeignKey;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -17,9 +20,14 @@ public class Store extends BaseEntity {
     @Column(name = "last_update")
     private Date lastUpdate;
 
-    @ManyToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager_staff_id")
+    @ForeignKey(name = "fk_store_staff")
+    private Staff staff;
 
     @Override
     public Long getId() {
@@ -46,16 +54,24 @@ public class Store extends BaseEntity {
         this.address = address;
     }
 
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
+
     @Override
     public String toString() {
         return "Store{" +
                 "id=" + id +
                 ", lastUpdate=" + lastUpdate +
                 ", address=" + address +
+                ", staff=" + staff +
                 '}';
     }
-
-    /*
+/*
     @ManyToOne
     @JoinColumn(name = "manager_staff_id", referencedColumnName = "staff_id", nullable = false)
     private Staff staffByManagerStaffId;

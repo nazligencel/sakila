@@ -8,7 +8,6 @@ import java.util.Date;
 
 @Table(name = "country")
 @Entity
-@Audited
 public class Country extends BaseEntity {
 
     @Id

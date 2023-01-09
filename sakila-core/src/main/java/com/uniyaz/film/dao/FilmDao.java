@@ -1,11 +1,7 @@
 package com.uniyaz.film.dao;
 
 import com.uniyaz.HibernateUtil;
-import com.uniyaz.category.domain.Category;
-import com.uniyaz.city.domain.City;
-import com.uniyaz.city.queryfilterdto.CityQueryFilterDto;
 import com.uniyaz.film.domain.Film;
-import com.uniyaz.film.queryfilterdto.FilmQueryFilterDto;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,6 +35,7 @@ public class FilmDao {
         currentSession.delete(film);
         transaction.commit();
     }
+
 
 
 }

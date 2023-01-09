@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @Table(name = "customer")
 @Entity
-@Audited
+
 public class Customer extends BaseEntity {
 
     @Id

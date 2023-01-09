@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @Table(name = "category")
 @Entity
-@Audited
+
 public class Category extends BaseEntity {
 
     @Id

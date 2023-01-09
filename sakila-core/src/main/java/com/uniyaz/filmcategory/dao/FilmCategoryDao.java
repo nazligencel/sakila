@@ -1,8 +1,6 @@
 package com.uniyaz.filmcategory.dao;
 
 import com.uniyaz.HibernateUtil;
-import com.uniyaz.category.domain.Category;
-import com.uniyaz.city.domain.City;
 import com.uniyaz.film.queryfilterdto.FilmQueryFilterDto;
 import com.uniyaz.filmcategory.domain.FilmCategory;
 import org.hibernate.Query;
@@ -37,12 +35,29 @@ public class FilmCategoryDao {
         currentSession.delete(filmCategory);
         transaction.commit();
     }
-    public List<Category> findAllByQueryFilterDto(FilmQueryFilterDto filmQueryFilterDto) {
+    public List<FilmCategory> findByFileName(String s) {
+        String hql =
+                "Select filmcategory " +
+                        "From FilmCategory filmcategory " +
+                        "Left Join fetch filmcategory.category categoryName " +
+                        "Left Join fetch filmcategory.film title " +
+                        "where filmcategory.film.title like:name ";
+
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session currentSession = sessionFactory.openSession();
+        Query query = currentSession.createQuery(hql);
+        query.setParameter("name",s + "%");
+        List<FilmCategory> filmCategoryList = query.list();
+        return filmCategoryList;
+
+    }
+
+    public List<FilmCategory> findAllByQueryFilterDto(FilmQueryFilterDto filmQueryFilterDto) {
 
         String hql =
                 "Select filmcategory " +
                         "From FilmCategory filmcategory " +
-                        "Left Join fetch filmcategory.category category " +
+                        "Left Join filmcategory.category category " +
                         "where 1=1 ";
 
         if (filmQueryFilterDto.getId() != null) {
@@ -70,10 +85,10 @@ public class FilmCategoryDao {
         }
 
         if (filmQueryFilterDto.getCategory() != null) {
-            query.setParameter("country", filmQueryFilterDto.getCategory());
+            query.setParameter("category", filmQueryFilterDto.getCategory());
         }
 
-        List<Category> categoryList = query.list();
+        List<FilmCategory> categoryList = query.list();
         return categoryList;
     }
 }

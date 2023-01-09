@@ -9,7 +9,6 @@ import java.util.Date;
 
 @Table(name = "actor")
 @Entity
-@Audited
 public class Actor extends BaseEntity {
 
     @Id

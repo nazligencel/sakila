@@ -2,12 +2,12 @@ package com.uniyaz.staff.domain;
 
 import com.uniyaz.address.domain.Address;
 import com.uniyaz.common.domain.BaseEntity;
+import com.uniyaz.store.domain.Store;
+import org.hibernate.annotations.ForeignKey;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Objects;
+
 
 @Entity
 public class Staff extends BaseEntity {
@@ -25,13 +25,11 @@ public class Staff extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "address_id")
+    @ForeignKey(name = "fk_staff_address")
     private Address address;
 
     @JoinColumn(name = "email")
     private String email;
-
-    @Column(name = "store_id")
-    private Long storeId;
 
     @Column(name = "username")
     private String username;
@@ -42,6 +40,11 @@ public class Staff extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_update")
     private Date lastUpdate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    @ForeignKey(name = "fk_staff_store")
+    private Store store;
 
     @Override
     public Long getId() {
@@ -84,13 +87,6 @@ public class Staff extends BaseEntity {
         this.email = email;
     }
 
-    public Long getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(Long storeId) {
-        this.storeId = storeId;
-    }
 
     public String getUsername() {
         return username;
@@ -124,7 +120,6 @@ public class Staff extends BaseEntity {
                 ", lastName='" + lastName + '\'' +
                 ", address=" + address +
                 ", email='" + email + '\'' +
-                ", storeId=" + storeId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", lastUpdate=" + lastUpdate +

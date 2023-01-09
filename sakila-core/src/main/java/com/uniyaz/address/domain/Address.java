@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.util.Date;
 @Table(name = "address")
 @Entity
-@Audited
 public class Address extends BaseEntity {
 
     @Id
@@ -39,7 +38,7 @@ public class Address extends BaseEntity {
     private String phone;
 
     @Column(name = "location")
-    private Object location;
+    private String location;
 
     @Column(name = "last_update")
     private Date lastUpdate;
@@ -107,7 +106,7 @@ public class Address extends BaseEntity {
         return location;
     }
 
-    public void setLocation(Object location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 

@@ -11,7 +11,6 @@ import java.util.Date;
 
 @Table(name = "film_actor")
 @Entity
-@Audited
 public class FilmActor extends BaseEntity {
 
     @Id
@@ -70,8 +69,8 @@ public class FilmActor extends BaseEntity {
     public String toString() {
         return "FilmActor{" +
                 "id=" + id +
-                ", film=" + film +
-                ", actor=" + actor +
+                ", film=" + film.getTitle()+
+                ", actor=" + actor.getFirstName() +
                 ", lastUpdate=" + lastUpdate +
                 '}';
     }

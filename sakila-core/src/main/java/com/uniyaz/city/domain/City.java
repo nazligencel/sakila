@@ -10,7 +10,6 @@ import java.util.Date;
 
 @Table(name = "city")
 @Entity
-@Audited
 public class City extends BaseEntity {
 
     @Id
