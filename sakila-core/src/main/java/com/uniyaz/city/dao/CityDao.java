@@ -73,7 +73,7 @@ public class CityDao {
         }
 
         if (cityQueryFilterDto.getCountry() != null) {
-            query.setParameter("country", cityQueryFilterDto.getCountry());
+            query.setParameter("country", cityQueryFilterDto.getCountryName());
         }
 
         List<City> cityList = query.list();

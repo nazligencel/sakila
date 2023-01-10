@@ -2,12 +2,19 @@ package com.uniyaz.actor.dao;
 import com.uniyaz.HibernateUtil;
 import com.uniyaz.actor.domain.Actor;
 import com.uniyaz.actor.queryfilterdto.ActorQueryFilterDto;
+import com.uniyaz.common.dao.BaseDao;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import java.util.List;
 
-public class ActorDao {
+public class ActorDao  extends BaseDao<Actor>{
 
+    public ActorDao() {
+        super(Actor.class);
+    }
+
+
+    
     public List<Actor> findAll() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session currentSession = sessionFactory.openSession();
@@ -25,13 +32,13 @@ public class ActorDao {
         return actor;
     }
 
-    public void delete(Actor actor) {
+  /*  public void delete(Actor actor) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session currentSession = sessionFactory.openSession();
         Transaction transaction = currentSession.beginTransaction();
         currentSession.delete(actor);
         transaction.commit();
-    }
+    }*/
 
     public List<Actor> findAllByName(String name) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -72,6 +79,8 @@ public class ActorDao {
         List<Actor> actorList = query.list();
         return actorList;
     }
+
+
 
 
     public List<Actor> findAllByQueryFilterDtoCriteria(ActorQueryFilterDto actorQueryFilterDto) {

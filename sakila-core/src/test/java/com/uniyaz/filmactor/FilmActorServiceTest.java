@@ -1,4 +1,4 @@
-package com.uniyaz.filmactor.service.filmactor;
+package com.uniyaz.filmactor;
 
 import com.uniyaz.filmactor.domain.FilmActor;
 import com.uniyaz.filmactor.service.FilmActorService;

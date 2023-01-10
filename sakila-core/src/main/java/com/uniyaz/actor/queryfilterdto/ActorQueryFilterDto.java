@@ -1,7 +1,8 @@
 package com.uniyaz.actor.queryfilterdto;
 
-public class ActorQueryFilterDto {
+import com.uniyaz.common.query.SakilaQueryable;
 
+public class ActorQueryFilterDto implements SakilaQueryable {
     private Long id;
     private String firstName;
 
@@ -19,5 +20,18 @@ public class ActorQueryFilterDto {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    @Override
+    public String buildQuery() {
+        String hql =
+                "Select     actor " +
+                        "From       Actor actor " +
+                        "Where      1=1 ";
+
+        if (id != null) hql += " and actor.id = " + id;
+        if (firstName != null) hql += " and actor.firstName = '" + firstName + "'";
+
+        return hql;
     }
 }

@@ -26,6 +26,7 @@ public class CategoryService {
         CategoryDao categoryDao=new CategoryDao();
         return categoryDao.findAllByQueryFilterDto(categoryQueryFilterDto);
     }
+
     public List<Category> findAllByName(String name) {
         CategoryDao categoryDao = new CategoryDao();
         return categoryDao.findAllByName(name);
