@@ -1,6 +1,7 @@
 package com.uniyaz.store.dao;
 
 import com.uniyaz.HibernateUtil;
+import com.uniyaz.common.dao.BaseDao;
 import com.uniyaz.store.domain.Store;
 import com.uniyaz.store.queryfilterdto.StoreQueryFilterDto;
 import org.hibernate.*;
@@ -9,30 +10,10 @@ import org.hibernate.sql.JoinType;
 
 import java.util.List;
 
-public class StoreDao {
-    public List<Store> findAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Query query = currentSession.createQuery("Select store From Store store");
-        List<Store> storeList = query.list();
-        return storeList;
-    }
+public class StoreDao extends BaseDao<Store> {
 
-    public Store save(Store store) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        store = (Store) currentSession.merge(store);
-        transaction.commit();
-        return store;
-    }
-
-    public void delete(Store store) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        currentSession.delete(store);
-        transaction.commit();
+    public StoreDao() {
+        super(Store.class);
     }
 
      public List<Store> findAllByQueryFilterDto(StoreQueryFilterDto storeQueryFilterDto) {

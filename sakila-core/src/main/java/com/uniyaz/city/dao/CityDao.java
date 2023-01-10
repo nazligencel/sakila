@@ -3,6 +3,7 @@ package com.uniyaz.city.dao;
 import com.uniyaz.HibernateUtil;
 import com.uniyaz.city.domain.City;
 import com.uniyaz.city.queryfilterdto.CityQueryFilterDto;
+import com.uniyaz.common.dao.BaseDao;
 import com.uniyaz.country.domain.Country;
 import org.hibernate.*;
 import org.hibernate.criterion.DetachedCriteria;
@@ -13,31 +14,10 @@ import org.hibernate.sql.JoinType;
 
 import java.util.List;
 
-public class CityDao {
+public class CityDao extends BaseDao<City> {
 
-    public List<City> findAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Query query = currentSession.createQuery("Select city From City city");
-        List<City> cityList = query.list();
-        return cityList;
-    }
-
-    public City save(City city) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        city = (City) currentSession.merge(city);
-        transaction.commit();
-        return city;
-    }
-
-    public void delete(City city) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        currentSession.delete(city);
-        transaction.commit();
+    public CityDao() {
+        super(City.class);
     }
 
     public List<City> findAllByQueryFilterDto(CityQueryFilterDto cityQueryFilterDto) {

@@ -10,20 +10,7 @@ import org.hibernate.SessionFactory;
 import java.util.List;
 
 public class PaymentDao {
-    public List<Payment> findAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        String hql =
-                "Select payment " +
-                        "From Payment payment " +
-                        "Left Join fetch payment.customer firstName " +
-                        "Left Join fetch payment.staff firstName " +
-                        "Left Join fetch payment.rental id "
-                ;
-        Query query = currentSession.createQuery(hql);
-        List<Payment> paymentList = query.list();
-        return paymentList;
-    }
+
     public List<Payment> findAllByQueryFilterDto(PaymentQueryFilterDto paymentQueryFilterDto) {
         String hql =
                 "Select payment " +

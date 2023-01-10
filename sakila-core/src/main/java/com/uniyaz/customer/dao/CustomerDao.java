@@ -1,6 +1,7 @@
 package com.uniyaz.customer.dao;
 
 import com.uniyaz.HibernateUtil;
+import com.uniyaz.common.dao.BaseDao;
 import com.uniyaz.customer.domain.Customer;
 import com.uniyaz.customer.queryfilterdto.CustomerQueryFilterDto;
 import org.hibernate.*;
@@ -8,31 +9,12 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-public class CustomerDao {
-    public List<Customer> findAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Query query = currentSession.createQuery("Select customer From Customer customer");
-        List<Customer> customerList = query.list();
-        return customerList;
+public class CustomerDao extends BaseDao<Customer> {
+
+    public CustomerDao() {
+        super(Customer.class);
     }
 
-    public Customer save(Customer customer) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        customer = (Customer) currentSession.merge(customer);
-        transaction.commit();
-        return customer;
-    }
-
-    public void delete(Customer customer) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        currentSession.delete(customer);
-        transaction.commit();
-    }
 
     public List<Customer> findAllByName(String name) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

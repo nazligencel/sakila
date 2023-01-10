@@ -1,39 +1,20 @@
 package com.uniyaz.staff.dao;
 
 import com.uniyaz.HibernateUtil;
+import com.uniyaz.common.dao.BaseDao;
 import com.uniyaz.staff.domain.Staff;
 import com.uniyaz.staff.queryfilterdto.StaffQueryFilterDto;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+
 
 import java.util.List;
 
-public class StaffDao {
-    public List<Staff> findAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Query query = currentSession.createQuery("Select staff From Staff staff");
-        List<Staff> staffList = query.list();
-        return staffList;
-    }
+public class StaffDao extends BaseDao<Staff> {
 
-    public Staff save(Staff staff) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        staff = (Staff) currentSession.merge(staff);
-        transaction.commit();
-        return staff;
-    }
-
-    public void delete(Staff staff) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        currentSession.delete(staff);
-        transaction.commit();
+    public StaffDao() {
+        super(Staff.class);
     }
 
     public List<Staff> findAllByQueryFilterDto(StaffQueryFilterDto staffQueryFilterDto) {

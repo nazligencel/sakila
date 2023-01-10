@@ -1,6 +1,7 @@
 package com.uniyaz.rental.dao;
 
 import com.uniyaz.HibernateUtil;
+import com.uniyaz.common.dao.BaseDao;
 import com.uniyaz.rental.domain.Rental;
 import com.uniyaz.rental.queryfilterdto.RentalQueryFilterDto;
 import org.hibernate.*;
@@ -9,31 +10,12 @@ import org.hibernate.sql.JoinType;
 
 import java.util.List;
 
-public class RentalDao {
-    public List<Rental> findAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Query query = currentSession.createQuery("Select rental From Rental rental");
-        List<Rental> rentalList = query.list();
-        return rentalList;
+public class RentalDao extends BaseDao<Rental> {
+
+    public RentalDao() {
+        super(Rental.class);
     }
 
-    public Rental save(Rental rental) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        rental = (Rental) currentSession.merge(rental);
-        transaction.commit();
-        return rental;
-    }
-
-    public void delete(Rental rental) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session currentSession = sessionFactory.openSession();
-        Transaction transaction = currentSession.beginTransaction();
-        currentSession.delete(rental);
-        transaction.commit();
-    }
 
     public List<Rental> findAllByQueryFilterDto(RentalQueryFilterDto rentalQueryFilter) {
 
