@@ -17,6 +17,15 @@
     <servlet-class>com.uniyaz.servlet.CountryJsonServlet</servlet-class>
   </servlet>
 
+  <servlet>
+  <servlet-name>CountryServlet</servlet-name>
+  <servlet-class>com.uniyaz.servlet.CountryServlet</servlet-class>
+</servlet>
+
+  <servlet>
+    <servlet-name>CityJsonServlet</servlet-name>
+    <servlet-class>com.uniyaz.servlet.CityJsonServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
 
@@ -28,6 +37,16 @@
   <servlet-mapping>
     <servlet-name>CountryJsonServlet</servlet-name>
     <url-pattern>/CountryJsonServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CountryServlet</servlet-name>
+    <url-pattern>/CountryServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CityJsonServlet</servlet-name>
+    <url-pattern>/CityJsonServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

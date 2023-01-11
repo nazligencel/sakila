@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+
+
+TEST UYGULAMASI
+<input type="button" value="ÇALIŞTIR" onclick="alertMessage('SADSADASDASD')">
+
+<form action="/ActSrv" method="post">
+    <div>
+        First Name <input type="text" name="firstName">
+    </div>
+    <div>
+        Last name <input type="text" name="lastName">
+    </div>
+
+    <input type="submit" value="Kaydet">
+
+</form>
+
+<form action="/CountryServlet" method="get">
+    <input type="submit" value="COUNTRY LIST">
+</form>
+
+<input type="button" value="COUNTRY2 LIST" onclick="findAllCountryList()">
+<table id="countryTable"></table>
+
+
+</body>
+</html>

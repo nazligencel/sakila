@@ -5,17 +5,17 @@
 <body>
 
 
-<form action="/CountryJsonServlet" method="post">
-    Country <input type="text" name="country">
-    <br />
-    <br />
-    <input type="submit" value="Search">
-
+<form action="/CountryServlet" method="get">
+    <input type="submit" value="COUNTRY LIST">
 </form>
 
-<input type="button" value="COUNTRY2 LIST" onclick="findAllCityList()">
-<table id="cityTable"></table>
 
+    Country <input type="text" id= "country" name="country" >
+    <br />
+    <br />
+    <input type="button" value="Search" onclick="findAllCityList()">
+
+<table id="cityTable"></table>
 
 </body>
 </html>

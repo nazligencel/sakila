@@ -1,5 +1,8 @@
 package com.uniyaz.servlet;
 
+import com.google.gson.Gson;
+import com.uniyaz.city.domain.City;
+import com.uniyaz.city.service.CityService;
 import com.uniyaz.country.domain.Country;
 import com.uniyaz.country.service.CountryService;
 
@@ -10,19 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class CountryServlet extends HttpServlet {
-
-    @Override
+public class CityServlet extends HttpServlet {
+   /* @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CountryService countryService = new CountryService();
-        List<Country> countryList = countryService.findAll();
+        CityService cityService = new CityService();
+        List<City> cityList = cityService.findAll();
         String html = "<table>";
-        for (Country country : countryList) {
-            html += "<tr><td>" + country.getId() + "</td><td>" + country.getCountry() + "</td></tr>";
+        for (City city : cityList) {
+            html += "<tr>" +
+                    "<td>" + city.getId() + "</td>" +
+                    "<td>" + city.getCity() + "</td>" +
+                    "<td>" + city.getCountry() + "</td>" +
+                    "</tr>";
         }
         html += "</table>";
         resp.getWriter().write(html);
 
-    }
+    }*/
+
 
 }

@@ -36,8 +36,8 @@ public class CityDao extends BaseDao<City> {
             hql += " and city.city = :city";
         }
 
-        if (cityQueryFilterDto.getCountry() != null) {
-            hql += " and city.country = :country ";
+        if (cityQueryFilterDto.getCountryName() != null) {
+            hql += " and country.country = :country ";
         }
 
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -52,7 +52,7 @@ public class CityDao extends BaseDao<City> {
             query.setParameter("city", cityQueryFilterDto.getCity());
         }
 
-        if (cityQueryFilterDto.getCountry() != null) {
+        if (cityQueryFilterDto.getCountryName() != null) {
             query.setParameter("country", cityQueryFilterDto.getCountryName());
         }
 
@@ -75,10 +75,10 @@ public class CityDao extends BaseDao<City> {
         if (cityQueryFilterDto.getCity() != null) {
             criteria.add(Restrictions.eq("city", cityQueryFilterDto.getCity()));
         }
-
+/*
         if (cityQueryFilterDto.getCountry() != null) {
             criteria.add(Restrictions.eq("countryAlias.country", cityQueryFilterDto.getCountry().getCountry()));
-        }
+        }*/
 
         List<City> cityList = criteria.list();
         return cityList;
